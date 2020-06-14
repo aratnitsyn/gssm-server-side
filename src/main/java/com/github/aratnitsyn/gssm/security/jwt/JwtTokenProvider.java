@@ -1,10 +1,11 @@
 package com.github.aratnitsyn.gssm.security.jwt;
 
 import com.github.aratnitsyn.gssm.config.ApplicationProperties;
-import io.jsonwebtoken.*;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
-import io.jsonwebtoken.security.SignatureException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
@@ -84,24 +85,11 @@ public class JwtTokenProvider {
      * @return If {@code True} then a token valid otherwise {@code False}.
      */
     public boolean validateToken(String token) {
-        try {
-            Jwts.parserBuilder()
-                .setSigningKey(key)
-                .build()
-                .parseClaimsJws(token);
-            return true;
-        } catch (SignatureException e) {
-            LOGGER.error("Invalid JWT signature -> Message: {0} ", e);
-        } catch (MalformedJwtException e) {
-            LOGGER.error("Invalid JWT token -> Message: {0}", e);
-        } catch (ExpiredJwtException e) {
-            LOGGER.error("Expired JWT token -> Message: {0}", e);
-        } catch (UnsupportedJwtException e) {
-            LOGGER.error("Unsupported JWT token -> Message: {0}", e);
-        } catch (IllegalArgumentException e) {
-            LOGGER.error("JWT claims string is empty -> Message: {0}", e);
-        }
-        return false;
+        Jwts.parserBuilder()
+            .setSigningKey(key)
+            .build()
+            .parseClaimsJws(token);
+        return true;
     }
 
     /**

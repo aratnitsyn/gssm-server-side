@@ -27,7 +27,8 @@ public class GssmApplication {
     @PostConstruct
     public void initApplication() {
         final List<String> activeProfiles = Arrays.asList(environment.getActiveProfiles());
-        if (!activeProfiles.contains(DefaultProfileUtil.SPRING_PROFILE_PRODUCTION) && !activeProfiles.contains(DefaultProfileUtil.SPRING_PROFILE_DEVELOPMENT)) {
+        if (!activeProfiles.contains(DefaultProfileUtil.SPRING_PROFILE_PRODUCTION)
+            && !activeProfiles.contains(DefaultProfileUtil.SPRING_PROFILE_DEVELOPMENT)) {
             LOGGER.error("");
         }
     }
@@ -35,6 +36,7 @@ public class GssmApplication {
     public static void main(String[] args) {
         final SpringApplication springApplication = new SpringApplication(GssmApplication.class);
         DefaultProfileUtil.addDefaultProfile(springApplication);
-        springApplication.run(args).getEnvironment();
+        springApplication.run(args)
+                         .getEnvironment();
     }
 }
