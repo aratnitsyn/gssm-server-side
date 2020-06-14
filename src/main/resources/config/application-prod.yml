@@ -1,0 +1,34 @@
+logging:
+  level:
+    com.github.aratnitsyn.gssm: info
+
+spring:
+  devtools:
+    restart:
+      enabled: false
+    livereload:
+      enabled: false
+
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:postgresql://localhost:5432/gssm
+    username: gssm
+    password: gssm
+    hikari:
+      pool-name: Hikari
+      auto-commit: false
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+    show-sql: false
+
+server:
+  port: 8081
+
+application:
+  security:
+    authentication:
+      jwt:
+        base64-secret: YWUyYzI1NGJlYmRiYjlmZWNmMTQ1MWYyOTk0ZGUyMmM4ODNlNWZmMzMyYTAxYjJmZWE0Yjc0MjQ5YjRkOTY3NmE0ZjFhYzc4NWE4NGNiMzg1MDNiZGQxZDIxMjQ2ZGQwNjJkNDM0OGNiNzliMzhhMGNhOTgwODZhODA1ZjUxOGQ=
+        token-validity-in-seconds: 86400
+        token-validity-in-seconds-for-remember-me: 2592000

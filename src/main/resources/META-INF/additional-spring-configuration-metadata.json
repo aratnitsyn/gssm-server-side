@@ -1,0 +1,19 @@
+{
+  "properties": [
+    {
+      "name": "application.security.authentication.jwt.base64-secret",
+      "type": "java.lang.String",
+      "description": "Description for application.security.authentication.jwt.base64-secret."
+    },
+    {
+      "name": "application.security.authentication.jwt.token-validity-in-seconds",
+      "type": "java.lang.String",
+      "description": "Description for application.security.authentication.jwt.token-validity-in-seconds."
+    },
+    {
+      "name": "application.security.authentication.jwt.token-validity-in-seconds-for-remember-me",
+      "type": "java.lang.String",
+      "description": "Description for application.security.authentication.jwt.token-validity-in-seconds-for-remember-me."
+    }
+  ]
+}
