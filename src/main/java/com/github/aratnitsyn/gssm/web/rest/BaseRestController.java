@@ -1,6 +1,7 @@
 package com.github.aratnitsyn.gssm.web.rest;
 
 import com.github.aratnitsyn.gssm.service.BaseRestService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -10,10 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @RequestMapping("/api")
 public abstract class BaseRestController<S extends BaseRestService> {
-    /**
-     * Service that performs business logic.
-     *
-     * @return service
-     */
-    public abstract S getService();
+    protected S service;
+
+    @SuppressWarnings("unchecked")
+    @Autowired
+    private void setService(BaseRestService service) {
+        this.service = (S) service;
+    }
 }

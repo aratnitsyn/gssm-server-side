@@ -22,7 +22,8 @@ public class SingleUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        final Optional<UserEntity> userEntity = userRepository.findByUsername(username);
+        final String lowerCaseUsername = username.toLowerCase();
+        final Optional<UserEntity> userEntity = userRepository.findByUsername(lowerCaseUsername);
         return userEntity.map(SingleUserDetails::new)
             .orElseThrow(() -> new UsernameNotFoundException("Not Found " + username));
     }
