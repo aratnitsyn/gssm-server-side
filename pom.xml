@@ -45,7 +45,7 @@
 		<jacoco.itReportFile>${jacoco.itReportFolder}/integrationTest.exec</jacoco.itReportFile>
 
 		<!-- junit -->
-		<junit.version>4.13</junit.version>
+		<junit.version>4.13.1</junit.version>
 		<junit.utReportFolder>${project.testresult.directory}/test</junit.utReportFolder>
 		<junit.itReportFolder>${project.testresult.directory}/integrationTest</junit.itReportFolder>
 
