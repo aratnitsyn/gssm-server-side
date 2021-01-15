@@ -50,7 +50,7 @@
 		<junit.itReportFolder>${project.testresult.directory}/integrationTest</junit.itReportFolder>
 
 		<!-- sonar -->
-		<sonar-maven-plugin.version>3.7.0.1746</sonar-maven-plugin.version>
+		<sonar-maven-plugin.version>3.8.0.2131</sonar-maven-plugin.version>
     </properties>
 
     <dependencies>
